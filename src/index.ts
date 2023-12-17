@@ -115,3 +115,5 @@ const aCar: [string, string, number] = ['Ford', 'Focus', 2007]; // Now a tuple w
 function flipCoin(): "heads" | "tails" { // Literal string with value heads or tails
     return Math.random() > 0.5 ? "heads" : "tails";
 }
+
+const outcome = flipCoin();
