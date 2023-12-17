@@ -65,9 +65,8 @@ let defCar: {
     year: number,
     voltage?: number
 }
-
 // And it's value - we can be sure it conforms
-defCar = {
+ = {
     make: "Ford",
     model: "Focus",
     year: 2007
@@ -104,3 +103,10 @@ const person: {
 
 person.bob = {name: 'Bob', age: 75, dob: new Date()};
 
+// Arrays
+
+const extensions = ['js','ts']; // Simple arries work well with inference - here an array of strings
+extensions.push('json'); // Only strings
+
+const myCar = ['Ford', 'Focus', 2007]; // Now string OR numbers inferred of any length
+const aCar: [string, string, number] = ['Ford', 'Focus', 2007]; // Now a tuple with definite length and types of each element in order
