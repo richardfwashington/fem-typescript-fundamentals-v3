@@ -117,3 +117,21 @@ function flipCoin(): "heads" | "tails" { // Literal string with value heads or t
 }
 
 const outcome = flipCoin();
+
+function maybeGetUserInfo(): 
+["error", Error] | ["success", {
+    name: string,
+    age: number
+}]
+ {
+    if(flipCoin() === 'heads') {
+        return ["success", {
+            name: "Emma",
+            age: 40
+        }];
+    } else {
+        return ["error", new Error("Failed to get get info")];
+    }
+}
+
+const userInfo = maybeGetUserInfo;
