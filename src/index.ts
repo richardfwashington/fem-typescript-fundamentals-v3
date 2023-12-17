@@ -136,3 +136,13 @@ function maybeGetUserInfo():
 
 const userInfo = maybeGetUserInfo();
 const [userStatus, userResult] = userInfo;
+
+if(userStatus === "success") { // Narrow the result to success using string value check
+    userResult.age; // ...do whatever
+} else {
+    userResult.message; // ...do whatever
+}
+
+if(userResult instanceof Error) { // Narrow the result to the error using instance of operator to detect an Error derived object 
+    userResult.message; // ...do whatever
+}
