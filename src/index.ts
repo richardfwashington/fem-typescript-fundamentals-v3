@@ -134,4 +134,4 @@ function maybeGetUserInfo():
     }
 }
 
-const userInfo = maybeGetUserInfo;
+const userInfo = maybeGetUserInfo();
