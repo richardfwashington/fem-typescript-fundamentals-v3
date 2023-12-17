@@ -135,3 +135,4 @@ function maybeGetUserInfo():
 }
 
 const userInfo = maybeGetUserInfo();
+const [userStatus, userResult] = userInfo;
