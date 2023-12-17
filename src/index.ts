@@ -110,3 +110,8 @@ extensions.push('json'); // Only strings
 
 const myCar = ['Ford', 'Focus', 2007]; // Now string OR numbers inferred of any length
 const aCar: [string, string, number] = ['Ford', 'Focus', 2007]; // Now a tuple with definite length and types of each element in order
+
+// Union types
+function flipCoin(): "heads" | "tails" { // Literal string with value heads or tails
+    return Math.random() > 0.5 ? "heads" : "tails";
+}
