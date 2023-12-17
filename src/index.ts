@@ -148,3 +148,6 @@ if(userResult instanceof Error) { // Narrow the result to the error using instan
 } else {
     userResult.age; // ...do whatever
 }
+
+// This is a discriminated or tagged union type as we have a string label in the 0th position in the tuples
+// Error and success in this case are the tags and re used to determine contents in the 1st position
