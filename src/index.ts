@@ -91,3 +91,16 @@ function printCar(car: {
     }
 
 printCar(defCar); // Now only cars with the right shape can be used
+
+// Index keys for dictionaries
+
+const person: {
+ [key: string]: { // Each item in the object must have a string key with an object value, each with name, age, dob properties
+    name: string,
+    age: number,
+    dob: Date
+ }
+} = {}; // Must be initialised - here with no values
+
+person.bob = {name: 'Bob', age: 75, dob: new Date()};
+
