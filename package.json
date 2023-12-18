@@ -1,10 +1,14 @@
 {
-    "name": "hello-ts",
-    "license": "NOLICENSE",
-    "dependencies": {
-        "typescript": "^4.3.2"
-    },
-    "scripts": {
-        "dev": "tsc --watch --preserveWatchOutput"
-    }
+  "name": "hello-ts",
+  "license": "NOLICENSE",
+  "scripts": {
+    "dev": "tsc --watch --preserveWatchOutput"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.56.0",
+    "prettier": "^2.8.8",
+    "typescript": "^4.9.5"
+  }
 }
