@@ -184,6 +184,7 @@ thisWeek.end.toISOString();
 // Type aliases
 
 type UserContactInfo = {
+  // TitleCase by convention
   // Define the type once here so we can point to it whenever we need it
   name: string;
   email: string;
