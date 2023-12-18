@@ -204,6 +204,26 @@ const user: UserContactInfo = {
 
 printContactInfo(user); // Use the shaped object as an argument to our function
 
+// Function type alias
+type SimpleMathFunction = (a: number, b: number) => number;
+
+// Function expression
+const adder: SimpleMathFunction = function (a, b) {
+  return a + b;
+};
+
+// Function expression (arrow function)
+const arrowAdder: SimpleMathFunction = (a, b) => a + b;
+
+// Also possible to use with a function declaration
+function minuser(a, b): ReturnType<SimpleMathFunction> {
+  return a - b;
+}
+
+const result = adder(1, 2);
+const result2 = arrowAdder(3, 4);
+const result3 = minuser(3, 2);
+
 // Example of cleaned up code using a type alias
 
 type UserInfoOutcomeError = ["error", Error];
