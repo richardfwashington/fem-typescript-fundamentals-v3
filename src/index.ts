@@ -111,6 +111,7 @@ const extensions = ["js", "ts"]; // Simple arries work well with inference - her
 extensions.push("json"); // Only strings
 
 const myCar = ["Ford", "Focus", 2007]; // Now string OR numbers inferred of any length
+const thisCar: any[] = ["Ford", "Mustang"];
 const aCar: [string, string, number] = ["Ford", "Focus", 2007]; // Now a tuple with definite length and types of each element in order
 
 // Union types (OR ||)
@@ -231,3 +232,13 @@ function cleanMaybeGetUserInfo(): UserIndoOutcomes {
 
 const possibleUserDetails = cleanMaybeGetUserInfo();
 console.log(possibleUserDetails);
+
+// Interfaces
+
+// Describe object types.  Cannot be used with a union |
+
+interface UserInfo {
+  // TitleCase by convention - no = operator
+  name: string;
+  age: number;
+}
