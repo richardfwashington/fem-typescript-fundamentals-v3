@@ -113,7 +113,7 @@ extensions.push("json"); // Only strings
 const myCar = ["Ford", "Focus", 2007]; // Now string OR numbers inferred of any length
 const aCar: [string, string, number] = ["Ford", "Focus", 2007]; // Now a tuple with definite length and types of each element in order
 
-// Union types
+// Union types (OR ||)
 function flipCoin(): "heads" | "tails" {
   // Literal string with value heads or tails
   return Math.random() > 0.5 ? "heads" : "tails";
@@ -144,6 +144,7 @@ function maybeGetUserInfo():
 }
 
 const userInfo = maybeGetUserInfo();
+
 const [userStatus, userResult] = userInfo;
 
 if (userStatus === "success") {
@@ -162,3 +163,20 @@ if (userResult instanceof Error) {
 
 // This is a discriminated or tagged union type as we have a string label in the 0th position in the tuples
 // Error and success in this case are the tags and re used to determine contents in the 1st position
+
+// Intersection types (AND &&)
+
+// Used less often then union types
+
+function makeWeek(): Date & { end: Date } {
+  // Returns something which is both a Date and has a property called end which is also a date
+  const start = new Date();
+  const end = new Date(start.valueOf() + 60 * 60 * 24 * 7);
+
+  return { ...start, end };
+}
+
+const thisWeek = makeWeek();
+thisWeek.toISOString();
+
+thisWeek.end.toISOString();
