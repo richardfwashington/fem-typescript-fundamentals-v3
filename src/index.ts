@@ -202,3 +202,32 @@ const user: UserContactInfo = {
 };
 
 printContactInfo(user); // Use the shaped object as an argument to our function
+
+// Example of cleaned up code using a type alias
+
+type UserInfoOutcomeError = ["error", Error];
+type UserInfoOutcomeSuccess = [
+  "success",
+  {
+    name: string;
+    age: number;
+  }
+];
+type UserIndoOutcomes = UserInfoOutcomeError | UserInfoOutcomeSuccess;
+
+function cleanMaybeGetUserInfo(): UserIndoOutcomes {
+  if (flipCoin() === "heads") {
+    return [
+      "success",
+      {
+        name: "Emma",
+        age: 40,
+      },
+    ];
+  } else {
+    return ["error", new Error("Failed to get get info")];
+  }
+}
+
+const possibleUserDetails = cleanMaybeGetUserInfo();
+console.log(possibleUserDetails);
