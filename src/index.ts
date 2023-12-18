@@ -180,3 +180,24 @@ const thisWeek = makeWeek();
 thisWeek.toISOString();
 
 thisWeek.end.toISOString();
+
+// Type aliases
+
+type UserContactInfo = {
+  // Define the type once here so we can point to it whenever we need it
+  name: string;
+  email: string;
+};
+
+function printContactInfo(info: UserContactInfo): void {
+  // Accept UserContactInfo
+  console.log(`${info.name} ${info.email}`);
+}
+
+const user: UserContactInfo = {
+  // Define an object with the shape of UserContactInfo
+  name: "Emma",
+  email: "@aol.com",
+};
+
+printContactInfo(user); // Use the shaped object as an argument to our function
