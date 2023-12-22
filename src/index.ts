@@ -390,3 +390,31 @@ function twoNumbersOrStrings(
 
 twoNumbersOrStrings(1, 3);
 twoNumbersOrStrings("hello", " goodbye");
+
+// Class properties
+
+// Public - anyone - default
+// Private - only this class
+// Protected - this class or classes which extend this class
+
+// Only at compile time does not actually restrict access at runtime
+
+class myClassWithSecrets {
+  public name: string;
+  private serialNumber: number;
+  #secretKey: number; // Actually private - must be declared explicitly
+  readonly year: number; // Cannot be changed once instantiated
+
+  public constructor(name: string, year: number) {
+    this.year = year;
+    this.name = name;
+    this.serialNumber = Math.random() * 1000;
+  }
+
+  public get SRN() {
+    return "SRN" + this.serialNumber;
+  }
+}
+
+const secrets = new myClassWithSecrets("Emma", 2023);
+console.log(secrets.name);
