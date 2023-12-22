@@ -347,3 +347,18 @@ const suberator: TwoNumberPureFunctionType = (a, b) => {
 
 adderator(1, 2);
 suberator(3, 1);
+
+// Void vs undefined
+
+function justPrints(): void {
+  console.log("Hello");
+  // Returns undefined by efault but void means explicilty shouldn't be used
+}
+
+function justPrintReturnsUndefiend(): undefined {
+  console.log("Hello");
+  // Returns undefined by efault but void means explicilty shouldn't be used
+}
+
+const printed = justPrints();
+const printedUndefined = justPrintReturnsUndefiend();
