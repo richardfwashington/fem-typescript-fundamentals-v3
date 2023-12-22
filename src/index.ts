@@ -376,9 +376,17 @@ myDate;
 
 function twoNumbersOrStrings(a: number, b: number): number;
 function twoNumbersOrStrings(a: string, b: string): string;
-function twoNumbersOrStrings(a: any, b: any): any {
-  return a + b;
+function twoNumbersOrStrings(
+  a: number | string,
+  b: number | string
+): number | string {
+  // Narrowing types
+  if (typeof a === "number" && typeof b === "number") {
+    return a + b;
+  } else if (typeof a === "string" && typeof b === "string") {
+    return "Concatenated:" + a + " " + b;
+  }
 }
 
 twoNumbersOrStrings(1, 3);
-twoNumbersOrStrings("hello", " goodbye");:
+twoNumbersOrStrings("hello", " goodbye");
