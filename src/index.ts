@@ -418,3 +418,11 @@ class myClassWithSecrets {
 
 const secrets = new myClassWithSecrets("Emma", 2023);
 console.log(secrets.name);
+
+class ClassWithParamProperties {
+  // No need for declarations
+  public constructor(readonly year: number, public name: string) {}
+}
+
+const myClassWithParamProperties = new ClassWithParamProperties(1983, "Ric");
+console.log(myClassWithParamProperties.year);
