@@ -362,3 +362,12 @@ function justPrintReturnsUndefiend(): undefined {
 
 const printed = justPrints();
 const printedUndefined = justPrintReturnsUndefiend();
+
+// Construct signatures
+
+interface DateConstructor {
+  new (value: number): Date;
+}
+const myDateConsructor: DateConstructor = Date;
+const myDate = new myDateConsructor();
+myDate;
