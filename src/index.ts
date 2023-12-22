@@ -259,6 +259,40 @@ console.log(possibleUserDetails);
 
 interface UserInfo {
   // TitleCase by convention - no = operator
+  // Properties
   name: string;
   age: number;
+
+  // Methods
+  speak(emotion: string): void;
+}
+
+class User implements UserInfo {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  speak(emotion: string): void {
+    console.log(`My name is ${this.name} and I am ${emotion}`);
+  }
+
+  walk(): void {}
+}
+
+const emma = new User("Emma", 40);
+
+function makeUserAngry(user: UserInfo): void {
+  // Can use interfaces to enforce objects being able to do certain things ala polymorphism
+  user.speak("ANGRY");
+}
+
+makeUserAngry(emma);
+
+interface UserInfo {
+  // Intefaces can be added to later
+  walk(): void;
 }
