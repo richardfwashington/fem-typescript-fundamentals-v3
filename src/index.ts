@@ -322,3 +322,28 @@ isJSON(class {});
 isJSON(undefined);
 isJSON(BigInt(143));
 isJSON(isJSON);
+
+// Function types
+
+// () signify a callable
+
+// Can be defined with an interface
+interface TwoNumberPureFunctionInterface {
+  (a: number, b: number): number;
+}
+
+// Or type, these two are equivilant
+type TwoNumberPureFunctionType = (a: number, b: number) => number;
+
+const adderator: TwoNumberPureFunctionInterface = (a, b) => {
+  // No need to type annotate here now as infered from interface
+  return a + b;
+};
+
+const suberator: TwoNumberPureFunctionType = (a, b) => {
+  // No need to type annotate here now as infered from type
+  return a - b;
+};
+
+adderator(1, 2);
+suberator(3, 1);
