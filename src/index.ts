@@ -371,3 +371,14 @@ interface DateConstructor {
 const myDateConsructor: DateConstructor = Date;
 const myDate = new myDateConsructor();
 myDate;
+
+// Function overloading
+
+function twoNumbersOrStrings(a: number, b: number): number;
+function twoNumbersOrStrings(a: string, b: string): string;
+function twoNumbersOrStrings(a: any, b: any): any {
+  return a + b;
+}
+
+twoNumbersOrStrings(1, 3);
+twoNumbersOrStrings("hello", " goodbye");:
