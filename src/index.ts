@@ -426,3 +426,12 @@ class ClassWithParamProperties {
 
 const myClassWithParamProperties = new ClassWithParamProperties(1983, "Ric");
 console.log(myClassWithParamProperties.year);
+
+// Top types
+
+const name: any = null; // COuld be anything
+const banana: unknown = "hello";
+if (typeof banana === "string") {
+  // unknown must be narrowed later
+  // Banana
+}
