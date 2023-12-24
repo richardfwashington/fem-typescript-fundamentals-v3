@@ -435,3 +435,46 @@ if (typeof banana === "string") {
   // unknown must be narrowed later
   // Banana
 }
+
+// Narrowing
+
+let couldBeAnything:
+  | number
+  | string
+  | Date
+  | "banana"
+  | number[]
+  | 1
+  | null
+  | {
+      dateRange: [Date, Date];
+      name: string;
+    };
+
+if (couldBeAnything instanceof Date) {
+  // instanceof
+  couldBeAnything.getDay; // Definately a Date
+}
+
+if (typeof couldBeAnything === "number") {
+  // typeof
+  console.log(couldBeAnything + 5); // Definately a number - could be 1 or any other number
+}
+
+if (couldBeAnything === 1) {
+  // Specfic value check - number literal here
+}
+
+if (!couldBeAnything) {
+  // Truthy aka not null here
+  couldBeAnything;
+}
+
+if (Array.isArray(couldBeAnything)) {
+  // An array - therfore an array of numbers
+  couldBeAnything;
+}
+
+if (typeof couldBeAnything === "object" && "dateRange" in couldBeAnything) {
+  // Is an object, and that has a particlular property
+}
