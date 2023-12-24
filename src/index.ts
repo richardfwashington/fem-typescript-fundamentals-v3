@@ -502,3 +502,23 @@ if (isDrivable(possiblyDrivable)) {
 } else {
   possiblyDrivable; // Still don't know what it is
 }
+
+function assertsIsDrivable(
+  maybeDrivable: unknown
+): asserts maybeDrivable is Drivable {
+  if (
+    !(
+      maybeDrivable &&
+      typeof maybeDrivable === "object" &&
+      typeof maybeDrivable["engine"] === "string" &&
+      typeof maybeDrivable["drive"] === "function"
+    )
+  )
+    throw new Error("Value is not driveable");
+}
+
+possiblyDrivable; // We don't know yet if it is driveable
+
+assertsIsDrivable(possiblyDrivable); // Throws an error if not driveable
+
+possiblyDrivable; // Now we know it is in fact driveable
