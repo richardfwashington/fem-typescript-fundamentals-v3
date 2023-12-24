@@ -478,3 +478,27 @@ if (Array.isArray(couldBeAnything)) {
 if (typeof couldBeAnything === "object" && "dateRange" in couldBeAnything) {
   // Is an object, and that has a particlular property
 }
+
+// Custom types for narrowing
+
+interface Drivable {
+  engine: "string";
+  drive(): void;
+}
+
+let possiblyDrivable: unknown;
+
+function isDrivable(maybeDrivable: unknown): maybeDrivable is Drivable {
+  return (
+    maybeDrivable &&
+    typeof maybeDrivable === "object" &&
+    typeof maybeDrivable["engine"] === "string" &&
+    typeof maybeDrivable["drive"] === "function"
+  );
+}
+
+if (isDrivable(possiblyDrivable)) {
+  possiblyDrivable; // OK it does conform to the Interface of Drivable
+} else {
+  possiblyDrivable; // Still don't know what it is
+}
