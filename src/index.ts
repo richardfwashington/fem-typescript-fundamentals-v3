@@ -522,3 +522,40 @@ possiblyDrivable; // We don't know yet if it is driveable
 assertsIsDrivable(possiblyDrivable); // Throws an error if not driveable
 
 possiblyDrivable; // Now we know it is in fact driveable
+
+// Nullish values
+
+// Null undefined void
+
+// Null is no value
+// Undefined is no value yet but possible later
+// Void means ignore any return type
+// ? optional param value
+// ! non-null ascertion ensures prior value is not null or undefined
+
+type GroceryCart = {
+  fruits?: { name: string; qty: number }[];
+  vegetables?: { name: string; qty: number }[];
+};
+
+const cart: GroceryCart = {};
+
+cart.fruits.push({ name: "kumkuat", qty: 1 }); // Will error at runtime
+
+// So we can guard
+
+const fullCart: GroceryCart = {
+  fruits: [{ name: "Banana", qty: 1 }],
+  vegetables: [{ name: "Banana", qty: 1 }],
+};
+
+function checkFruits(cart: GroceryCart) {
+  if (!cart.fruits) {
+    throw new Error("No fruits sir!");
+  }
+}
+
+checkFruits(fullCart);
+
+// Now we KNOW fruits are present
+fullCart.fruits.push({ name: "Kiwi", qty: 100 });
