@@ -559,3 +559,31 @@ checkFruits(fullCart);
 
 // Now we KNOW fruits are present
 fullCart.fruits.push({ name: "Kiwi", qty: 100 });
+
+// Generics
+
+// Sometimes we want to define a type but without knowing in advance the exacty types of everything
+// These can be decided later
+
+function genericFunction<T>(a: T): T {
+  // Declare a type T, use it to define the param and return type to tie them all together
+  // <T> captures the type for later use
+  // Just returns the argument so not overly useful
+  return a;
+}
+
+genericFunction(1); // T are now all numbers
+
+function genericFunction2<T, K>(a: T, b: K): [T, K] {
+  // Declare types T and K, use it to define the params and return types to tie them all together
+  // Returns a tuple pair of the inputs which can be different types
+  return [a, b];
+}
+
+genericFunction2(1, 2); // [1, 2]
+genericFunction2("name", 1); // ['name', 1]
+
+// Now we don't need to use any to set the types of the inputs and outputs but can tie them together
+
+// Also possible to call generic functions and explicitly set the type
+genericFunction<string>("hello");
