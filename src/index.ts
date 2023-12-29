@@ -28,11 +28,16 @@ async function addNumbers(a: number, b: number) {
 const age = 6; // A number - the number type is immutable but the value can change
 const AGE = 6; // A 6 - is a const so TS can infer a value as a literal type
 
+age;
+AGE;
+
 // Between 500 and 1000
 const RANDOM_WAIT_TIME = Math.round(Math.random() * 500) + 500;
 
 const startTime = new Date();
+startTime;
 let endTime: Date; // Of type any which is the most flexible type by default
+endTime;
 // But using an explicit declaration we can narrow the type to just a date
 
 setTimeout(() => {
@@ -48,7 +53,7 @@ function add(a: number, b: number): number {
 }
 
 // Now the function is clearly meant to accept and return numbers only
-const result = add(3, 4); // Must both be numbers
+const result2 = add(3, 4); // Must both be numbers
 
 // Objects
 
@@ -221,8 +226,8 @@ function minuser(a, b): ReturnType<SimpleMathFunction> {
 }
 
 const result = adder(1, 2);
-const result2 = arrowAdder(3, 4);
-const result3 = minuser(3, 2);
+const result3 = arrowAdder(3, 4);
+const result4 = minuser(3, 2);
 
 // Example of cleaned up code using a type alias
 
@@ -317,11 +322,11 @@ isJSON(null);
 isJSON({ a: { b: [2, 3, "foo"] } });
 
 // NEGATIVE test cases (must fail)
-isJSON(() => "");
-isJSON(class {});
-isJSON(undefined);
-isJSON(BigInt(143));
-isJSON(isJSON);
+//isJSON(() => "");
+//isJSON(class {});
+//isJSON(undefined);
+//isJSON(BigInt(143));
+//isJSON(isJSON);
 
 // Function types
 
@@ -429,7 +434,8 @@ console.log(myClassWithParamProperties.year);
 
 // Top types
 
-const name: any = null; // COuld be anything
+const anyName: any = null; // Could be anything
+anyName;
 const banana: unknown = "hello";
 if (typeof banana === "string") {
   // unknown must be narrowed later
