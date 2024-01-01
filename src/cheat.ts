@@ -63,3 +63,28 @@ function fruitBowl(fruitItem: Fruit): void {
 }
 
 fruitBowl(myFruit);
+
+// Types
+
+type UserObject = {
+  name: string;
+  age: number;
+};
+
+interface CanSing {
+  sing(): void;
+}
+
+function makeUserSing(user: CanSing): void {
+  user.sing();
+}
+
+const singingUser: CanSing = {
+  name: "Richard",
+  age: 39,
+  sing() {
+    console.log("Can I sing a question insead?");
+  },
+};
+
+makeUserSing(singingUser);
