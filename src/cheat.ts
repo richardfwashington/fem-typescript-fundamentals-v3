@@ -75,11 +75,16 @@ interface CanSing {
   sing(): void;
 }
 
+interface UserCanSing extends CanSing {
+  name: string;
+  age: number;
+}
+
 function makeUserSing(user: CanSing): void {
   user.sing();
 }
 
-const singingUser: CanSing = {
+const singingUser: UserCanSing = {
   name: "Richard",
   age: 39,
   sing() {
@@ -88,3 +93,15 @@ const singingUser: CanSing = {
 };
 
 makeUserSing(singingUser);
+
+// Generics
+
+function pairUp<T, K>(a: T, b: K): [T, K] {
+  return [a, b];
+}
+
+const firstNumb = 1;
+const firstString = "Emma";
+
+const firstPair = pairUp(firstNumb, firstString);
+firstPair;
