@@ -118,3 +118,20 @@ const stringArrayAtDepth: StringOrArrayOfStrings = [
 ];
 
 stringArrayAtDepth;
+
+// JSON
+
+type jsonPrimative = number | string | boolean | null;
+type jsonObject = {
+  [k: string]: jsonValue;
+};
+type jsonArray = jsonValue[];
+type jsonValue = jsonPrimative | jsonObject | jsonArray;
+
+const someJSON: jsonValue = [
+  "name",
+  {
+    scissors: "silver",
+  },
+];
+someJSON;
