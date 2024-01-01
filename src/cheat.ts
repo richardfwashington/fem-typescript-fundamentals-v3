@@ -105,3 +105,16 @@ const firstString = "Emma";
 
 const firstPair = pairUp(firstNumb, firstString);
 firstPair;
+
+// Recursive types
+
+type StringOrArrayOfStrings = string | StringOrArrayOfStrings[];
+
+const stringArrayAtDepth: StringOrArrayOfStrings = [
+  "hello",
+  ["hi", "banana"],
+  "cheese",
+  ["whaaaat", "surprise", ["bagel"]],
+];
+
+stringArrayAtDepth;
