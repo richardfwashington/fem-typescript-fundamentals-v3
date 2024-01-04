@@ -617,6 +617,30 @@ function printFruits(a: Fruits) {
 printFruits('banana'); // Fine
 printFruits('cheese'); // Not fine
 
+// typeof
+
+// Extracts a string of a value
+let hello = "hello";
+type aString = typeof hello; // aString type is string NOT hello NOT the string literal type "string"
+let hello2: aString = "banana"; // Fine
+
+// Indexed types
+
+type Car =  {
+  color: string,
+  age: number
+}
+
+let carColor: Car['color'] = "red"; // string
+let carAge: Car['age'] = 10; // number
+let carSomething: Car['age' | 'color'] = 10; // number or string 
+
+
+
+
+
+
+
 
 
 
