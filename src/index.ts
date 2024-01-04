@@ -593,3 +593,34 @@ genericFunction2("name", 1); // ['name', 1]
 
 // Also possible to call generic functions and explicitly set the type
 genericFunction<string>("hello");
+
+// Type queries
+// Extracting the type from values
+
+// keyof
+
+type DatePropertyNames = keyof Date; // Not all of the same type // Date interface NOT object
+type DateStringPropertyNames = keyof Date & string; // All string types
+type DateSymbolPropertyNames = keyof Date & symbol; // All symbol types
+
+interface objectWithKeys {
+banana: boolean,
+apple: boolean
+}
+
+type Fruits = keyof objectWithKeys; // Union of all the keys aka banana | apple
+
+function printFruits(a: Fruits) {
+  console.log(a);
+}
+
+printFruits('banana'); // Fine
+printFruits('cheese'); // Not fine
+
+
+
+
+
+
+
+
