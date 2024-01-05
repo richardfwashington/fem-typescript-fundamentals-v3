@@ -631,9 +631,44 @@ type Car =  {
   age: number
 }
 
+const myCar =  {
+  name: 'ford'
+}
+
+const kljlk = 'lklk';
+type jkjh = typeof kljlk;
+
+let carNm = typeof myCar;
+
 let carColor: Car['color'] = "red"; // string
 let carAge: Car['age'] = 10; // number
 let carSomething: Car['age' | 'color'] = 10; // number or string 
+
+// Type registry pattern
+
+// In our registry
+
+interface Vehicle  {
+  // Empty by design
+}
+
+// In a use case
+
+function doSomethingWithAVehiclePart(part: Vehicle) {
+  // Whatever
+}
+
+// In a data file later for particular vehicles
+
+// car.ts
+
+declare module '../lib/registry' {
+  export interface Vehicle {
+    wheels: 4,
+  }
+}
+
+
 
 
 
