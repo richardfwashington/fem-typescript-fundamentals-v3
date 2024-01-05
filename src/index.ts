@@ -691,6 +691,10 @@ function voiderator():void {
  // Returns undefined by detault - void means ignroe it and don't do anythig with it
 }
 
+function funCallback(myCallback: () => void) {
+  myCallback(); // Any return is ignored :)
+}
+
 
 
 
