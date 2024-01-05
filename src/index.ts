@@ -668,6 +668,26 @@ declare module '../lib/registry' {
   }
 }
 
+// Callables aka call signatures
+
+interface TwoNumberCalculation {
+  (x: number, y: number): number
+}
+
+type TwoNumberCalc = (x: number, y: number) => number; // Note => not :
+
+const addificator: TwoNumberCalc = (a, b) => a + b;
+const substractificator: TwoNumberCalc = (a, b) => a - b;
+
+function runner(myFunc: TwoNumberCalc, a:number, b:number): number { // Used to define the shape of a callback
+  return myFunc(a, b);
+}
+
+
+
+
+
+
 
 
 
