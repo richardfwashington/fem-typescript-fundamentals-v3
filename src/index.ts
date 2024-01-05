@@ -683,6 +683,16 @@ function runner(myFunc: TwoNumberCalc, a:number, b:number): number { // Used to 
   return myFunc(a, b);
 }
 
+// Void
+
+// Ignore any return 
+
+function voiderator():void {
+ // Returns undefined by detault - void means ignroe it and don't do anythig with it
+}
+
+
+
 
 
 
