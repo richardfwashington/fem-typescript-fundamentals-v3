@@ -604,8 +604,8 @@ type DateStringPropertyNames = keyof Date & string; // All string types
 type DateSymbolPropertyNames = keyof Date & symbol; // All symbol types
 
 interface objectWithKeys {
-banana: boolean,
-apple: boolean
+  banana: boolean;
+  apple: boolean;
 }
 
 type Fruits = keyof objectWithKeys; // Union of all the keys aka banana | apple
@@ -614,41 +614,41 @@ function printFruits(a: Fruits) {
   console.log(a);
 }
 
-printFruits('banana'); // Fine
-printFruits('cheese'); // Not fine
+printFruits("banana"); // Fine
+printFruits("cheese"); // Not fine
 
 // typeof
 
 // Extracts a string of a value
-let hello = "hello";
+const hello = "hello";
 type aString = typeof hello; // aString type is string NOT hello NOT the string literal type "string"
-let hello2: aString = "banana"; // Fine
+const hello2: aString = "banana"; // Fine
 
 // Indexed types
 
-type Car =  {
-  color: string,
-  age: number
-}
+type Car = {
+  color: string;
+  age: number;
+};
 
-const myCar =  {
-  name: 'ford'
-}
+const myCar = {
+  name: "ford",
+};
 
-const kljlk = 'lklk';
+const kljlk = "lklk";
 type jkjh = typeof kljlk;
 
-let carNm = typeof myCar;
+const carNm = typeof myCar;
 
-let carColor: Car['color'] = "red"; // string
-let carAge: Car['age'] = 10; // number
-let carSomething: Car['age' | 'color'] = 10; // number or string 
+const carColor: Car["color"] = "red"; // string
+const carAge: Car["age"] = 10; // number
+const carSomething: Car["age" | "color"] = 10; // number or string
 
 // Type registry pattern
 
 // In our registry
 
-interface Vehicle  {
+interface Vehicle {
   // Empty by design
 }
 
@@ -662,16 +662,16 @@ function doSomethingWithAVehiclePart(part: Vehicle) {
 
 // car.ts
 
-declare module '../lib/registry' {
+declare module "../lib/registry" {
   export interface Vehicle {
-    wheels: 4,
+    wheels: 4;
   }
 }
 
 // Callables aka call signatures
 
 interface TwoNumberCalculation {
-  (x: number, y: number): number
+  (x: number, y: number): number;
 }
 
 type TwoNumberCalc = (x: number, y: number) => number; // Note => not :
@@ -679,41 +679,44 @@ type TwoNumberCalc = (x: number, y: number) => number; // Note => not :
 const addificator: TwoNumberCalc = (a, b) => a + b;
 const substractificator: TwoNumberCalc = (a, b) => a - b;
 
-function runner(myFunc: TwoNumberCalc, a:number, b:number): number { // Used to define the shape of a callback
+function runner(myFunc: TwoNumberCalc, a: number, b: number): number {
+  // Used to define the shape of a callback
   return myFunc(a, b);
 }
 
 // Void
 
-// Ignore any return 
+// Ignore any return
 
-function voiderator():void {
- // Returns undefined by detault - void means ignroe it and don't do anythig with it
+function voiderator(): void {
+  // Returns undefined by detault - void means ignroe it and don't do anythig with it
 }
 
 function funCallback(myCallback: () => void) {
   myCallback(); // Any return is ignored :)
 }
 
+// Constructables
+// aka can new up via a constructor
 
+class MyCoolClass {
+  constructor(private _name: string) {}
 
+  get name() {
+    return this._name;
+  }
+}
 
+interface CoolConstructor {
+  new (name: string): MyCoolClass;
+}
 
+const myCoolObject = new MyCoolClass("Emma");
+myCoolObject.name;
 
+function coolCallbacker(f: CoolConstructor): void {
+  const coolObject = new f("Emma");
+  console.log(coolObject.name);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+coolCallbacker(MyCoolClass);
