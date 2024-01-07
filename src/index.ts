@@ -720,3 +720,16 @@ function coolCallbacker(f: CoolConstructor): void {
 }
 
 coolCallbacker(MyCoolClass);
+
+// This
+
+const myButton: HTMLElement = document.getElementById("myButton");
+
+function clickHandler(this: HTMLButtonElement, e: Event) {
+  // This isn't a paramter but looks like one, defines what kind of element this points to
+  // It is a fake parameter and needs cto be in the first position
+  // It will be compiled away
+  this.disabled = true;
+}
+
+myButton.addEventListener("click", clickHandler);
