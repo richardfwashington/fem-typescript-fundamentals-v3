@@ -55,6 +55,8 @@ function explicitAdd(a: number, b: number){
   return a + b; // Now we know a and b are numbers and the return type is also implied to be a number
 }
 
+explicitAdd(1, 2, 3); // Now we know the arguments are numbers, if we pass an additional parameter we see an error
+
 function add(a: number, b: number): number { // But we can be explicit too
   // Any type by default // But made explicit with : number
   return a + b; // Strings? Numbers? Both? // Return type also any by default // But made implicit number // Can be explicit using : number
