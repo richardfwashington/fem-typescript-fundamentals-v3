@@ -68,6 +68,7 @@ const result2 = add(3, 4); // Must both be numbers
 // Void return type - some function we expect to do something but not return anything
 
 function log(message: string): void {
+  let name = 'banana'; // Can have other variables but this one is unused, in config set noUnusedLocals to true to catch this
   console.log(message);
   // No return value - not even undefined
 }
