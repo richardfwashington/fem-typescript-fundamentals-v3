@@ -74,6 +74,13 @@ function log(message: string): void {
 
 // There is a config option for this noImplicitReturns
 
+// Funcitons can also have optional params
+
+function addTwoOrThreeNumbers(a: number, b: number, c?: number): number {
+  // Optional param marked with ?
+  return a + b + (c || 0); // If c is undefined or null use 0
+}
+
 // Objects
 
 // Standard object literal
