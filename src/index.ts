@@ -123,6 +123,31 @@ const myCar = ["Ford", "Focus", 2007]; // Now string OR numbers inferred of any 
 const thisCar: any[] = ["Ford", "Mustang"];
 const aCar: [string, string, number] = ["Ford", "Focus", 2007]; // Now a tuple with definite length and types of each element in order
 
+// Enums
+
+// List of realted constants
+
+// We could speficy three colors like
+const red = 1;
+const green = 2;
+const blue = 3;
+
+// Or use an enum to group them together
+
+const enum Colors { // Best to use const for performance
+  // Enumerated list of values
+  Red = 1,
+  Green = 2,
+  Blue = 3,
+} // Values are implcitiy set starting at 0, explicity set to 1, 2, 3 etc
+
+let myColor = Colors.Red; // Now myColor can only be one of the three values!
+
+console.log(myColor); // 1 :)
+
+
+
+
 // Union types (OR ||)
 function flipCoin(): "heads" | "tails" {
   // Literal string with value heads or tails
