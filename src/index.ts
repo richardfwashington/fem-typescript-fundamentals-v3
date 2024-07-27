@@ -116,6 +116,9 @@ const extensions = ["js", "ts"]; // Simple arries work well with inference - her
 extensions.push("json"); // Only strings
 // extensions.push(1); // Error as 1 is a number
 
+// Possible to use unions to cater for multiple types
+const mixedExtensions: (string | number)[] = ["js", "ts", 1]; // Now an array of strings or numbers
+
 const myCar = ["Ford", "Focus", 2007]; // Now string OR numbers inferred of any length
 const thisCar: any[] = ["Ford", "Mustang"];
 const aCar: [string, string, number] = ["Ford", "Focus", 2007]; // Now a tuple with definite length and types of each element in order
