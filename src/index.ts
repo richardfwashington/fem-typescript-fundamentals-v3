@@ -114,6 +114,7 @@ person.bob = { name: "Bob", age: 75, dob: new Date() };
 
 const extensions = ["js", "ts"]; // Simple arries work well with inference - here an implcit array of strings
 extensions.push("json"); // Only strings
+// extensions.push(1); // Error as 1 is a number
 
 const myCar = ["Ford", "Focus", 2007]; // Now string OR numbers inferred of any length
 const thisCar: any[] = ["Ford", "Mustang"];
