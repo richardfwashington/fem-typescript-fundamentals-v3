@@ -47,13 +47,30 @@ setTimeout(() => {
 
 // Functions
 
-function add(a: number, b: number): number {
+function basicAdd(a, b) { // Simple function with no type annotations
+  return a + b;
+}
+
+function explicitAdd(a: number, b: number){
+  return a + b; // Now we know a and b are numbers and the return type is also implied to be a number
+}
+
+function add(a: number, b: number): number { // But we can be explicit too
   // Any type by default // But made explicit with : number
   return a + b; // Strings? Numbers? Both? // Return type also any by default // But made implicit number // Can be explicit using : number
 }
 
 // Now the function is clearly meant to accept and return numbers only
 const result2 = add(3, 4); // Must both be numbers
+
+// Void return type - some function we expect to do something but not return anything
+
+function log(message: string): void {
+  console.log(message);
+  // No return value - not even undefined
+}
+
+// There is a config option for this noImplicitReturns
 
 // Objects
 
